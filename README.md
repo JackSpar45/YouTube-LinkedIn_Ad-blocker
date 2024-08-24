@@ -1,5 +1,3 @@
-# YouTube-LinkedIn_Ad-blocker
-
 # YouTube and LinkedIn Ad Blocker Chrome Extension
 
 This Chrome extension is designed to block ads on YouTube and LinkedIn. It allows users to toggle ad blocking for both platforms through a simple settings interface.
@@ -14,5 +12,6 @@ This Chrome extension is designed to block ads on YouTube and LinkedIn. It allow
 
 1. **Clone the repository**:
    ```bash
+   
    git clone https://github.com/yourusername/ad-blocker-extension.git
    cd ad-blocker-extension
