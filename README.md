@@ -16,4 +16,15 @@ This Chrome extension is designed to block ads on YouTube and LinkedIn. It allow
    git clone https://github.com/yourusername/ad-blocker-extension.git
    cd ad-blocker-extension
 
-gfhgfhf
+2. **Load the extension into Chrome:**
+
+Open Chrome and navigate to chrome://extensions/.
+Enable "Developer mode" by toggling the switch in the top right corner.
+Click on the "Load unpacked" button.
+In the dialog that appears, select the directory where you cloned the repository (ad-blocker-extension folder).
+The extension should now appear in your list of installed extensions.
+Configure Settings:
+
+After installation, open the extension's popup page by clicking on its icon in the Chrome toolbar.
+Toggle the checkboxes to enable or disable ad blocking for YouTube and LinkedIn.
+Click "Save" to apply the settings.
