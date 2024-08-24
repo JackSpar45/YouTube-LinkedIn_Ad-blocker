@@ -11,11 +11,10 @@ This Chrome extension is designed to block ads on YouTube and LinkedIn. It allow
 ## Installation
 
 ### 1. Clone the repository:
-   
-    ```bash
+
     git clone https://github.com/JackSpar45/YouTube-LinkedIn_Ad-blocker.git
     cd ad-blocker-extension
-    ```
+    
 ### 2. Load the extension into Chrome:
 
   - Open Chrome and navigate to chrome://extensions/.
