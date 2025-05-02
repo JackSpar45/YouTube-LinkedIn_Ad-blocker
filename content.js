@@ -1,4 +1,3 @@
-console.log("Content script running on Reddit"); 
 function removeYouTubeAds(){
 
   setInterval(() => {
