@@ -4,7 +4,8 @@ chrome.runtime.onInstalled.addListener((details) => {
        
         chrome.storage.sync.set({
             blockYouTube: false,
-            blockLinkedIn: false
+            blockLinkedIn: false,
+            blockReddit: false
         }, () => {
             console.log('Default settings saved.');
         });
@@ -18,7 +19,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'getAdBlockingSettings') {
         
-        chrome.storage.sync.get(['blockYouTube', 'blockLinkedIn'], (result) => {
+        chrome.storage.sync.get(['blockYouTube', 'blockLinkedIn','blockReddit'], (result) => {
             sendResponse(result);
         });
         return true; 
