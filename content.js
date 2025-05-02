@@ -1,3 +1,4 @@
+console.log("Content script running on Reddit"); 
 function removeYouTubeAds(){
 
   setInterval(() => {
@@ -14,7 +15,7 @@ function removeYouTubeAds(){
     if (adContainer && adContainer.children.length > 0) {
       video.playbackRate = 16;
       video.muted = true;
-      console.log('Fast-forwarding and muting ad');
+      //console.log('Fast-forwarding and muting ad');
     }
   
     const rightTopAd = document.querySelector('ytd-companion-slot-renderer');
@@ -43,10 +44,45 @@ function removeLinkedInAds() {
   });
 }
 
+// Function to remove Reddit Ads
+function removeRedditAds() {
+  //console.log("Running removeRedditAds...");
+
+  // Remove promoted labels first
+  document.querySelectorAll('.promoted-label.text-neutral-content-weak.font-normal.truncate').forEach(label => {
+    //console.log("Found promoted label!", label);
+    const parentPost = label.closest('[id^="t3_"]');
+    if (parentPost) {
+      //console.log("Removing post:", parentPost);
+      parentPost.style.display = 'none';
+    }
+  });
+
+  // Remove posts containing <shreddit-dynamic-ad-link>
+  document.querySelectorAll('shreddit-dynamic-ad-link').forEach(ad => {
+    //console.log("Found Reddit dynamic ad!", ad);
+    const parentPost = ad.closest('[id^="t3_"]');
+    if (parentPost) {
+      //console.log("Removing post:", parentPost);
+      parentPost.style.display = 'none'; 
+    }
+  });
+
+  // Remove sidebar and other ads
+  document.querySelectorAll('[data-testid="ad-unit"], [data-test-id="ad-slot"]').forEach(ad => {
+    //console.log("Removing sidebar ads...");
+    ad.style.display = 'none';
+  });
+
+  //console.log("Finished executing removeRedditAds.");
+}
+
+window.removeRedditAds = removeRedditAds;
+
 
 //------------------------->
 
-chrome.storage.sync.get(['blockYouTube','blockLinkedIn'],(result) =>{
+chrome.storage.sync.get(['blockYouTube','blockLinkedIn','blockReddit'],(result) =>{
    if(result.blockYouTube){
     if(location.hostname.includes('youtube.com')){
         document.addEventListener('DOMContentLoaded',removeYouTubeAds);
@@ -62,6 +98,19 @@ chrome.storage.sync.get(['blockYouTube','blockLinkedIn'],(result) =>{
         observer.observe(document.body, {childList:true, subtree:true});
     }
    }
+
+   if (result.blockReddit && location.hostname.includes('reddit.com')) {
+    document.addEventListener('DOMContentLoaded', removeRedditAds);
+    const observer = new MutationObserver(mutations => {
+      //console.log("Mutation detected...", mutations);
+      mutations.forEach(() => removeRedditAds());
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    setInterval(removeRedditAds, 2000);
+    
+  }
+
  
 });
 
