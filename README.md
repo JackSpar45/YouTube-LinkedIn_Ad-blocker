@@ -26,5 +26,5 @@ This Chrome extension is designed to block ads on YouTube, LinkedIn and Reddit. 
 ### 3. Configure Settings:
 
   - After installation, open the extension's popup page by clicking on its icon in the Chrome toolbar.
-  - Toggle the checkboxes to enable or disable ad blocking for YouTube and LinkedIn.
+  - Toggle the checkboxes to enable or disable ad blocking for YouTube, LinkedIn or Reddit.
 Click "Save" to apply the settings.
