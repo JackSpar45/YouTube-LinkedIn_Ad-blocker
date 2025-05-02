@@ -13,7 +13,7 @@ This Chrome extension is designed to block ads on YouTube, LinkedIn and Reddit. 
 
 ### 1. Clone the repository:
 
-    git clone https://github.com/JackSpar45/YouTube-LinkedIn_Ad-blocker.git
+    git clone https://github.com/JackSpar45/YouTube-LinkedIn-Reddit_Ad-blocker.git
     
 ### 2. Load the extension into Chrome:
 
@@ -28,3 +28,6 @@ This Chrome extension is designed to block ads on YouTube, LinkedIn and Reddit. 
   - After installation, open the extension's popup page by clicking on its icon in the Chrome toolbar.
   - Toggle the checkboxes to enable or disable ad blocking for YouTube, LinkedIn or Reddit.
 Click "Save" to apply the settings.
+
+
+![Screenshot 2025-05-02 231453](https://github.com/user-attachments/assets/dee85c0f-1b6f-4fea-a931-108fd115838c)
