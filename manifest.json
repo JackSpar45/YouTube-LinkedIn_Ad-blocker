@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "YouTube and LinkedIn Ad Blocker",
+    "name": "YouTube, LinkedIn and Reddit Ad Blocker",
     "version":"1.0",
-    "description":"Blocks ads on Youtube and LinkedIn",
+    "description":"Blocks ads on Youtube, LinkedIn and Reddit",
     "permissions":[
         "webRequest",
         "activeTab",
@@ -11,18 +11,20 @@
     ],
     "host_permissions":[
         "https://www.youtube.com/*",
-        "https://www.linkedin.com/*"
+        "https://www.linkedin.com/*",
+        "https://*.reddit.com/*"
     ],
     "background":{
         "service_worker":"background.js"
     },
+    
     "content_scripts":[
         {
-            "matches":["https://*.youtube.com/*"],
-            "js":["content.js"]
-        },
-        {
-            "matches":["https://www.linkedin.com/*"],
+            "matches":[
+                "https://*.youtube.com/*",
+                "https://*.linkedin.com/*",
+                "https://*.reddit.com/*"
+            ],
             "js":["content.js"]
         }
     ],
